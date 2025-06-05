@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Collector Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="status">Connecting...</div>
+    <div id="participants">Participants: 1</div>
+    <div id="scoreboard">Scoreboard:
+        <ul id="scores-list"></ul>
+    </div>
+    <div id="timer">Time: 2:00</div>
+    <div id="game-info">Collect particles to earn points! Special particles are worth more.</div>
+    <div id="powerup-notification"></div>
+    <div id="countdown-overlay">Get Ready!</div>
+    <div id="game-over">
+        <h1>Game Over!</h1>
+        <div id="game-over-scores"></div>
+        <button id="restart-button">Play Again</button>
+    </div>
+    <canvas id="canvas"></canvas>
+</body>
+</html>

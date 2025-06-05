@@ -1,0 +1,18 @@
+name = "multiplayer-particles"
+main = "worker.js"
+compatibility_date = "2023-08-01"
+
+assets.directory = "./"
+
+routes = [
+  { pattern = "cooldo.brubslabs.com", custom_domain = true }
+]
+
+[durable_objects]
+bindings = [
+  { name = "PARTICLE_ROOM", class_name = "ParticleRoom" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ParticleRoom"]

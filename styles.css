@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    cursor: none;
+    font-family: 'Arial', sans-serif;
+}
+canvas {
+    display: block;
+}
+.cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+#status {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 100;
+}
+#participants {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 100;
+}
+#scoreboard {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+}
+#game-info {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 100;
+}
+#timer {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 100;
+    font-size: 18px;
+}
+.points-popup {
+    position: absolute;
+    color: yellow;
+    font-weight: bold;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1001;
+    text-shadow: 0 0 3px black;
+    animation: float-up 1s forwards;
+}
+@keyframes float-up {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-30px); }
+}
+.leader-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 6px;
+    background-color: #FFD700;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+.leader-cursor::after {
+    content: "LEADER";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFD700;
+    color: #000;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+#countdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    font-size: 80px;
+    color: white;
+    font-weight: bold;
+}
+#game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    color: white;
+}
+#game-over h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: gold;
+}
+#game-over-scores {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+#restart-button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+#restart-button:hover {
+    background: #45a049;
+}
+.special-particle {
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); }
+    to { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1.0)); }
+}
+#powerup-notification {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: Arial, sans-serif;
+    background: rgba(75, 0, 130, 0.8);
+    padding: 8px 15px;
+    border-radius: 5px;
+    z-index: 100;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+    animation: fade-in-out 2s forwards;
+}
+@keyframes fade-in-out {
+    0% { opacity: 0; transform: translate(-50%, 20px); }
+    20% { opacity: 1; transform: translate(-50%, 0); }
+    80% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -20px); }
+}
